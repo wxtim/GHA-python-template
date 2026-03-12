@@ -32,9 +32,7 @@ jobs:
       - name: setup
         run: |
             # Don't install deps like this IRL, use setuptools.
-            pip install pytest
-            pip install mypy
-            pip install flake8
+            pip install pytest mypy flake8 coverage
 
       - name: Style test
         run: flake8
