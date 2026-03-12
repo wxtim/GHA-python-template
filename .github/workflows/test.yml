@@ -44,9 +44,9 @@ jobs:
         run: mypy .
 
       - name: Test
-        run: pytest
+        run: pytest --cov
 
-    #   - name: Coverage report
-    #     run: |
-    #       coverage xml --ignore-errors
-    #       coverage report
+      - name: Coverage report
+        run: |
+          coverage xml --ignore-errors
+          coverage report
