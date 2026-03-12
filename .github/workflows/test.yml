@@ -32,10 +32,13 @@ jobs:
       - name: setup
         run: |
             # Don't install deps like this IRL, use setuptools.
-            pip install pytest mypy flake8 coverage
+            pip install pytest mypy flake8 coverage ruff
 
-      - name: Style test
+      - name: Style test (Flake8)
         run: flake8
+
+      - name: Style test (Ruff)
+        run: ruff
 
     #   - name: Type checking
     #     run: mypy
