@@ -38,7 +38,7 @@ jobs:
         run: flake8
 
       - name: Style test (Ruff)
-        run: ruff
+        run: ruff check .
 
     #   - name: Type checking
     #     run: mypy
