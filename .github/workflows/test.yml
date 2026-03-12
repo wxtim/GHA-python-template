@@ -28,10 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-            token: ${{ secrets.PAT }}
 
-      - name: setup
+        - name: setup
         run: |
             # Don't install deps like this IRL, use setuptools.
             pip install pytest mypy flake8 coverage ruff pytest-cov
