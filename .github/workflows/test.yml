@@ -1,0 +1,44 @@
+name: Test
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
+      - '*.*.x'
+
+defaults:
+  run:
+    shell: bash -c "exec $CONDA_PREFIX/bin/bash -elo pipefail {0}"
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 1
+    strategy:
+      fail-fast: true
+      matrix:
+        os: ['ubuntu-latest']
+        python-version: ['3']
+    env:
+      PYTEST_ADDOPTS: --cov --color=yes
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Style test
+        run: flake8
+
+      - name: Type checking
+        run: mypy
+
+      - name: Test
+        run: pytest
+
+      - name: Coverage report
+        run: |
+          coverage xml --ignore-errors
+          coverage report
