@@ -50,12 +50,6 @@ jobs:
         run: |
           coverage html
           coverage report
-          git config --global user.name 'GHA'
-          git config --global user.email 'your-username@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}
-          git add --force htmlcov
-          git commit -m "automated report"
-          git push
 
     # See https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage
     #   - name: Codecov upload
