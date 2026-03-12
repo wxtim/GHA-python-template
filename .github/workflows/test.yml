@@ -52,6 +52,7 @@ jobs:
           coverage report
           git config --global user.name 'GHA'
           git config --global user.email 'your-username@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/${{ github.repository }}
           git add --force htmlcov
           git commit -m "automated report"
           git push
