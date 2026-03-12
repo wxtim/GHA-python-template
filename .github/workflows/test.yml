@@ -48,15 +48,16 @@ jobs:
 
       - name: Coverage report
         run: |
-          coverage xml --ignore-errors
+          coverage html
           coverage report
 
-      - name: Codecov upload
-        uses: codecov/codecov-action@v5
-        with:
-          name: ${{ github.workflow }}
-          fail_ci_if_error: true
-          verbose: true
-          # Token not required for public repos, but avoids upload failure due
-          # to rate-limiting (but not for PRs opened from forks)
-          token: ${{ secrets.CODECOV_TOKEN }}
+    # See https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage
+    #   - name: Codecov upload
+    #     uses: codecov/codecov-action@v5
+    #     with:
+    #       name: ${{ github.workflow }}
+    #       fail_ci_if_error: true
+    #       verbose: true
+    #       # Token not required for public repos, but avoids upload failure due
+    #       # to rate-limiting (but not for PRs opened from forks)
+    #       token: ${{ secrets.CODECOV_TOKEN }}
