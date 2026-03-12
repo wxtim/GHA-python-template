@@ -49,11 +49,10 @@ jobs:
       - name: Coverage report
         run: |
           coverage html
+          ls -la
           coverage report
           git config --global user.name 'GHA'
           git config --global user.email 'your-username@users.noreply.github.com'
-          cp -r htmlcov f
-          git add f
           git commit -am "automated report"
           git push
 
