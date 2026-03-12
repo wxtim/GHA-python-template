@@ -23,7 +23,7 @@ jobs:
         os: ['ubuntu-latest']
         python-version: ['3']
     env:
-      PYTEST_ADDOPTS: --cov --color=yes
+      PYTEST_ADDOPTS: --color=yes
 
     steps:
       - name: Checkout
@@ -45,7 +45,7 @@ jobs:
       - name: Test
         run: pytest
 
-      - name: Coverage report
-        run: |
-          coverage xml --ignore-errors
-          coverage report
+    #   - name: Coverage report
+    #     run: |
+    #       coverage xml --ignore-errors
+    #       coverage report
