@@ -29,6 +29,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: setup
+        run: |
+            # Don't install deps like this IRL, use setuptools.
+            pip install pytest
+            pip install mypy
+            pip install flake8
+
       - name: Style test
         run: flake8
 
