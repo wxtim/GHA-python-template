@@ -49,11 +49,11 @@ jobs:
       - name: Coverage report
         run: |
           coverage html
-          ls -la
           coverage report
           git config --global user.name 'GHA'
           git config --global user.email 'your-username@users.noreply.github.com'
-          git commit -am "automated report"
+          git add --force htmlcov
+          git commit -a "automated report"
           git push
 
     # See https://docs.codecov.com/docs/github-2-getting-a-codecov-account-and-uploading-coverage
